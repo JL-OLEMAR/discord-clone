@@ -2,7 +2,10 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import './globals.css'
 
-const font = Open_Sans({ subsets: ['latin'] })
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 export const metadata: Metadata = {
   title: 'Team Chat Application',
@@ -16,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={font.className}>{children}</body>
+      <body className={openSans.className}>{children}</body>
     </html>
   )
 }
