@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { esES } from '@clerk/localizations'
+
+import { ThemeProvider } from '@/components/providers'
+import { cn } from '@/lib/utils'
 import './globals.css'
 
 const openSans = Open_Sans({
@@ -21,8 +24,21 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider localization={esES}>
-      <html lang='es'>
-        <body className={openSans.className}>{children}</body>
+      <html lang='es' suppressHydrationWarning>
+        <body className={cn(
+          openSans.className,
+          'bg-white dark:bg-[#313338]'
+        )}
+        >
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            storageKey='discord-theme'
+          >
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   )
