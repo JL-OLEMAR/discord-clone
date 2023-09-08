@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider localization={esES}>
-      <html lang='es' suppressHydrationWarning>
+      <html lang='en' suppressHydrationWarning>
         <body className={cn(
           openSans.className,
           'bg-white dark:bg-[#313338]'
