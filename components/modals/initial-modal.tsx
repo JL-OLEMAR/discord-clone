@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client'
 
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+
 import {
   Dialog,
   DialogContent,
@@ -20,6 +22,7 @@ import {
   Input,
   Button
 } from '@/components/ui'
+import { FileUpload } from '../file-upload'
 
 // Validations with zod
 const formSchema = z.object({
@@ -73,7 +76,21 @@ export function InitialModal() {
           >
             <div className='space-y-8 px-6'>
               <div className='flex items-center justify-center text-center'>
-                TODO: Image Upload
+                <FormField
+                  control={form.control}
+                  name='imageUrl'
+                  render={({ field: { onChange, value } }) => (
+                    <FormItem>
+                      <FormControl>
+                        <FileUpload
+                          endpoint='serverImage'
+                          value={value}
+                          onChange={onChange}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
               </div>
 
               <FormField
