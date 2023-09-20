@@ -49,6 +49,7 @@ export function NavigationItem({ id, name, imageUrl }: NavigationItemProps) {
             width={48}
             height={48}
             priority={false}
+            loading='lazy'
           />
         </div>
       </button>
