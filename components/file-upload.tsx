@@ -20,10 +20,11 @@ export function FileUpload({ endpoint, value, onChange }: FileUploadProps) {
     return (
       <div className='relative h-20 w-20'>
         <Image
-          fill
           src={value}
           alt='Upload image'
           className='rounded-full'
+          width={80}
+          height={80}
         />
 
         {/* Button cancel */}
